@@ -11,28 +11,29 @@ import AppKit
 
 struct ContentView: View {
     var body: some View {
-        VStack(alignment: .leading, spacing: 0) {
-            Text("Make\nEpic\nThings")
-                .font(Font.system(size: 34.0))
-                .fontWeight(.semibold)
-                .multilineTextAlignment(.leading)
-                .padding(.horizontal, 16.0)
-                .padding(.vertical, 12.0)
-                .frame(width: 360.0, height: 320.0, alignment: .topLeading)
-            Button(action: {
-                NSApplication.shared.terminate(self)
-            })
-            {
-                Text("Quit App")
-                .font(.caption)
-                .fontWeight(.semibold)
-            }
-            .padding(.trailing, 16.0)
-            .frame(width: 360.0, alignment: .trailing)
+        
+        VStack(alignment:.leading, spacing: 5){
+            
+            Text("Connect")
+            Divider()
+            Text("Disconnect")
+            Divider()
+            Text("Help")
+            Divider()
+            Text("Quit")
+//            Button(action: {
+//                NSApplication.shared.terminate(self)
+//            })
+//            {
+//                Text("Quit App")
+//                .font(.caption)
+//                .fontWeight(.semibold)
+//            }
+           
         }
-        .padding(0)
-        .frame(width: 360.0, height: 360.0, alignment: .top)
-    }
+   
+        .frame(width: 130.0, height: 105.0, alignment: .top)
+        }
 }
 
 
