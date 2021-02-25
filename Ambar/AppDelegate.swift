@@ -25,7 +25,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let item2 = NSMenuItem(title: "Disconnect", action: #selector(disconnect), keyEquivalent: "")
         item2.target = self
         menu.addItem(item2)
-        let item3 = NSMenuItem(title: "Help", action: #selector(connect), keyEquivalent: "")
+        let item3 = NSMenuItem(title: "Help", action: #selector(help), keyEquivalent: "")
         item3.target = self
         menu.addItem(item3)
         let item4 = NSMenuItem(title: "Quit", action: #selector(quit), keyEquivalent: "")
@@ -93,11 +93,24 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let output : String = NSString(data: data, encoding: String.Encoding.utf8.rawValue)! as String
             print(output)
     }
-    
+    @objc func help() -> Void {
+        
+        var buf = [CChar](repeating: 0, count: 8192)
+        if let passphrase = readpassphrase("Enter passphrase: ", &buf, buf.count, 0),
+            let passphraseStr = String(validatingUTF8: passphrase) {
+
+            print(passphraseStr)
+        }
+    }
     @objc func quit() -> Void {
+        disconnect()
         NSApplication.shared.terminate(self)
     }
-
+    
+    func authenticate() -> Void {
+        print("auth user")
+    }
+    
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
